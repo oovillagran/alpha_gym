@@ -3,8 +3,8 @@ import logo from '../assets/logo.png';
 
 export default function Header() {
   return (
-    <header>
-      <div>
+    <header className="flex">
+      <div className="flex">
         <img src={logo} alt="logo" width="50" />
         <NavLink to="/">Alpha Gym</NavLink>
       </div>

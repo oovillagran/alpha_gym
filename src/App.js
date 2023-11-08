@@ -11,7 +11,7 @@ function App() {
         <div className="App">
           <header className="App-header">
             <Header />
-            <p>Oscar</p>
+            <p className="text-3xl font-bold underline">Oscar</p>
             <p>
               Edit
               {' '}
