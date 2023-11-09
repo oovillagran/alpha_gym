@@ -11,9 +11,9 @@ export default function Header() {
         </NavLink>
       </div>
       <div className="flex gap-4">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
+        <NavLink to="/" className="hover:underline">Home</NavLink>
+        <NavLink to="/about" className="hover:underline">About</NavLink>
+        <NavLink to="/contact" className="hover:underline">Contact</NavLink>
       </div>
     </header>
   );
