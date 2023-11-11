@@ -1,7 +1,25 @@
-function About() {
-  return (
-    <div>About</div>
-  )
-}
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import fetchAbout from './fetchAbout';
 
-export default About
+const About = () => {
+  const dispatch = useDispatch();
+  const missions = useSelector((state) => state.missions.missions);
+
+  useEffect(() => {
+    dispatch(fetchAbout());
+  }, [dispatch]);
+
+  return (
+    <div>
+      {missions?.map((mission) => (
+        <div key={mission.mission_id}>
+          <p>{mission.name}</p>
+          <p>{mission.description}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default About;
