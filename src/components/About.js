@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import fetchAbout from './fetchAbout';
 
@@ -12,13 +12,22 @@ const About = () => {
 
   return (
     <div>
-      {missions?.map((mission) => (
-        <div key={mission.mission_id}>
-          <p>{mission.name}</p>
-          <p>{mission.description}</p>
-          <p>Hello</p>
-        </div>
-      ))}
+      <table>
+        <tr>
+          <th>Mission</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th> </th>
+        </tr>
+        {missions?.map((mission) => (
+          <tr key={mission.mission_id}>
+            <td>{mission.name}</td>
+            <td>{mission.description}</td>
+            <td><p>NOT a MEMBER</p></td>
+            <td><button type="button">Join Mission</button></td>
+          </tr>
+        ))}
+      </table>
     </div>
   );
 };
