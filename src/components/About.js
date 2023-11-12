@@ -16,6 +16,7 @@ const About = () => {
         <div key={mission.mission_id}>
           <p>{mission.name}</p>
           <p>{mission.description}</p>
+          <p>Hello</p>
         </div>
       ))}
     </div>
