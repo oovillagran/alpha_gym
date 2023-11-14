@@ -2,11 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 import fetchAbout from '../../components/fetchAbout';
 
 const initialState = {
-  about: [],
+  missions: [],
 };
 
 export const aboutSlice = createSlice({
-  name: 'about',
+  name: 'missions',
   initialState,
   reducers: {},
   extraReducers: (builder) => {

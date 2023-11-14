@@ -4,7 +4,7 @@ import fetchAbout from './fetchAbout';
 
 const About = () => {
   const dispatch = useDispatch();
-  const missions = useSelector((state) => state.missions.missions);
+  const about = useSelector((state) => state.about.missions);
 
   useEffect(() => {
     dispatch(fetchAbout());
@@ -19,10 +19,10 @@ const About = () => {
           <th>Status</th>
           <th> </th>
         </tr>
-        {missions?.map((mission) => (
-          <tr key={mission.mission_id}>
-            <td>{mission.name}</td>
-            <td>{mission.description}</td>
+        {about?.map((about) => (
+          <tr key={about.about_id}>
+            <td>{about.about_name}</td>
+            <td>{about.description}</td>
             <td><p>NOT a MEMBER</p></td>
             <td><button type="button">Join Mission</button></td>
           </tr>
