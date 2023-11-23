@@ -2,7 +2,7 @@ import HeroImage from '../assets/images/banner.png';
 
 function HeroBanner() {
   return (
-    <div className="flex">
+    <div className="flex justify-between border border-red-500">
       <div>
         <h1>
           Body & Fitness
@@ -22,9 +22,9 @@ function HeroBanner() {
           Exercises
         </p>
       </div>
-      <div>
-        <img src={HeroImage} alt="banner" />
-      </div>
+      <img src={HeroImage} alt="banner" className="w-1/3 h-auto" />
+      {/* <div>
+      </div> */}
     </div>
   );
 }
