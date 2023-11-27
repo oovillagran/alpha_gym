@@ -1,8 +1,8 @@
-import HeroImage from '../assets/images/banner.png';
+// import HeroImage from '../assets/images/banner.png';
 
 function HeroBanner() {
   return (
-    <div className="flex justify-between border border-red-500">
+    <div className="flex justify-center border border-red-500 h-full">
       <div>
         <h1>
           Body & Fitness
@@ -22,7 +22,7 @@ function HeroBanner() {
           Exercises
         </p>
       </div>
-      <img src={HeroImage} alt="banner" className="w-1/3 h-auto" />
+      {/* <img src={HeroImage} alt="banner" className="w-1/3 h-auto" /> */}
       {/* <div>
       </div> */}
     </div>
