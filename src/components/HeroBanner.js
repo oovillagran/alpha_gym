@@ -1,30 +1,25 @@
-// import HeroImage from '../assets/images/banner.png';
-
 function HeroBanner() {
   return (
-    <div className="flex justify-center border border-red-500 h-full">
-      <div>
-        <h1>
-          Body & Fitness
+    <div className="flex place-items-center justify-center border border-red-500 h-full">
+      <div className="">
+        <h1 className="font-abc text-5xl font-bold text-pink-700">
+          Body, Working & Fitness
         </h1>
-        <p>
-          Dream, Smile
+        <p className="font-text text-3xl text-purple-700">
+          Xplore, Smile
           <br />
           and Exercise.
         </p>
-        <p>
+        <p className="font-content text-2xl font-bold">
           Checkout the most effective exercises.
         </p>
-        <button type="button">
+        <button type="button" className="font-content text-xl">
           Explore Exercises
         </button>
-        <p>
+        <p className="font-content text-xl">
           Exercises
         </p>
       </div>
-      {/* <img src={HeroImage} alt="banner" className="w-1/3 h-auto" /> */}
-      {/* <div>
-      </div> */}
     </div>
   );
 }

@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import About from './components/About';
-import Home from './components/Home';
+// import Home from './components/Home';
 import Contact from './components/Contact';
 import './App.css';
 
@@ -15,7 +15,7 @@ function App() {
           <header className="App-header">
             <Header />
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
