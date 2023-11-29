@@ -23,7 +23,7 @@ export default function Header() {
         <HeroBanner />
       </div>
       <div className="border-4 border-yellow-600">
-        <img src={HeroImg} alt="HeroBanner" width={750} className="rounded-bl-custom" />
+        <img src={HeroImg} alt="HeroBanner" width={750} className="rounded-bl-custom border border-gray-500" />
       </div>
     </div>
   );
