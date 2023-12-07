@@ -6,9 +6,9 @@ import Exercises from './Exercises';
 function Home() {
   return (
     <div>
-      <HeroBanner />
-      <SearchExercises />
-      <Exercises />
+      {/* <HeroBanner /> */}
+      {/* <SearchExercises /> */}
+      {/* <Exercises /> */}
     </div>
   );
 }

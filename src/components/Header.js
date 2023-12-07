@@ -10,8 +10,10 @@ export default function Header() {
         <header className="flex items-end justify-between px-10 py-2 text-xl text-gray-200 bg-gradient-to-r from-blue-950 to-purple-900 border-4 border-green-500">
           <div className="flex">
             <NavLink to="/" className="flex items-end gap-4 font-content">
-              <img src={logo} alt="logo" width="50" className="text-gray-200" />
-              Alpha Gym
+              <img src={logo} alt="logo" width="50" className="text-gray-200 hidden sm:block" />
+              <p>
+                Alpha Gym
+              </p>
             </NavLink>
           </div>
           <div className="flex gap-4">
@@ -23,7 +25,7 @@ export default function Header() {
         <HeroBanner />
       </div>
       <div className="border-4 border-yellow-600">
-        <img src={HeroImg} alt="HeroBanner" width={750} className="rounded-bl-custom border border-gray-500" />
+        <img src={HeroImg} alt="HeroBanner" width={750} className="rounded-bl-custom border hidden sm:block" />
       </div>
     </div>
   );
