@@ -1,6 +1,12 @@
+import 
 function Exercises() {
   return (
-    <div>Exercises</div>
+    <>
+      <div>Exercises</div>
+      <div style={}>
+
+      </div>
+    </>
   );
 }
 

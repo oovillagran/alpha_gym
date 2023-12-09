@@ -1,6 +1,13 @@
 function SearchExercises() {
   return (
-    <div>SearchExercises</div>
+    <div>
+      <p>
+        Filter by Category
+      </p>
+      <input
+        placeholder="Search by Category"
+      />
+    </div>
   );
 }
 
