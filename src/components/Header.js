@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo_icon.png';
 import HeroImg from '../assets/images/banner.png';
 import HeroBanner from './HeroBanner';
 
@@ -10,7 +10,7 @@ export default function Header() {
         <header className="flex items-end justify-between px-10 py-2 text-xl text-gray-200 bg-gradient-to-r from-blue-950 to-purple-900 border-4 border-green-500">
           <div className="flex">
             <NavLink to="/" className="flex items-end gap-4 font-content">
-              <img src={logo} alt="logo" width="50" className="text-gray-200 hidden sm:block" />
+              <img src={logo} alt="logo" width="50" className="hidden sm:block" style={{ filter: 'invert(100%)' }} />
               <p>
                 Alpha Gym
               </p>

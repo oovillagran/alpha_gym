@@ -1,6 +1,6 @@
 function SearchExercises() {
   return (
-    <div>
+    <div className="flex justify-evenly">
       <p>
         Filter by Category
       </p>
