@@ -13,10 +13,10 @@ function HeroBanner() {
         <p className="font-content text-2xl font-bold">
           Checkout the most effective exercises.
         </p>
-        <button type="button" className="font-content text-xl">
+        <button type="button" className="font-content text-xl bg-red-500 text-white p-4 my-6 rounded-lg shadow-2xl">
           Explore Exercises
         </button>
-        <p className="font-content text-9xl">
+        <p className="font-content text-9xl font-extrabold">
           Exercises
         </p>
       </div>
