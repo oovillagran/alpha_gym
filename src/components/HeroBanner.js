@@ -16,7 +16,7 @@ function HeroBanner() {
         <button type="button" className="font-content text-xl">
           Explore Exercises
         </button>
-        <p className="font-content text-xl">
+        <p className="font-content text-9xl">
           Exercises
         </p>
       </div>
