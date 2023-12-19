@@ -57,8 +57,8 @@ function SearchExercises() {
           Search
         </button>
       </div>
-      {/* <HorizontalScrollbar data={bodyParts} /> */}
-      <HorizontalScrollbar />
+      <HorizontalScrollbar data={bodyParts} />
+      {/* <HorizontalScrollbar /> */}
     </>
   );
 }
