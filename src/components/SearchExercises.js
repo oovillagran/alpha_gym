@@ -1,3 +1,4 @@
+// import React, { useState } from 'react';
 import React, { useEffect, useState } from 'react';
 import { exerciseOptions, fetchData } from './fetchData';
 import HorizontalScrollbar from './HorizontalScrollbar';
@@ -18,8 +19,9 @@ function SearchExercises() {
 
   const handleSearch = async () => {
     if (search) {
-      const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
+      const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
 
+      // console.log(exercisesData);
       const searchedExercises = exercisesData.filter(
         (exercise) => exercise.name.toLowerCase().includes(search)
         || exercise.target.toLowerCase().includes(search)
@@ -55,7 +57,8 @@ function SearchExercises() {
           Search
         </button>
       </div>
-      <HorizontalScrollbar data={bodyParts} />
+      {/* <HorizontalScrollbar data={bodyParts} /> */}
+      <HorizontalScrollbar />
     </>
   );
 }
