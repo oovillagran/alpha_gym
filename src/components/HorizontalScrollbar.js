@@ -40,13 +40,13 @@ function HorizontalScrollbar({ data }) {
             key={item.id || item}
             itemID={item.id || item}
             title={item.id || item}
-            className="bg-cover bg-center h-40 sm:h-64 flex justify-center items-center hover:scale-105"
+            className="bg-cover bg-center h-40 sm:h-64 flex justify-center items-center hover:scale-105 rounded-lg"
             style={{
               backgroundImage: `url(${getImagePath(item)})`,
               transition: 'transform 0.3s, filter 0.3s',
             }}
           >
-            <div className="w-full h-full bg-black bg-opacity-50 hover:bg-opacity-0 hover:scale-105 flex justify-center items-center">
+            <div className="w-full h-full bg-black bg-opacity-50 hover:bg-opacity-0 hover:scale-105 flex justify-center items-center rounded-lg">
               <p className="bg-white">
                 {item}
               </p>
