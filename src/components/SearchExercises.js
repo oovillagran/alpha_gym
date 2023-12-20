@@ -1,4 +1,3 @@
-// import React, { useState } from 'react';
 import React, { useEffect, useState } from 'react';
 import { exerciseOptions, fetchData } from './fetchData';
 import HorizontalScrollbar from './HorizontalScrollbar';
@@ -41,7 +40,7 @@ function SearchExercises() {
         <br />
         You Should Know
       </p>
-      <div className="flex justify-center items-center px-60">
+      <div className="flex justify-center items-center px-60 py-20">
         <input
           className="border border-gray-300 p-2 rounded-md w-full"
           placeholder="Search by Category"
