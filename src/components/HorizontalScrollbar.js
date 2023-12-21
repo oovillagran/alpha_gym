@@ -11,8 +11,9 @@ import Shoulders from '../assets/images/shoulders.jpg';
 import UpperArms from '../assets/images/upperarms.jpg';
 import UpperLegs from '../assets/images/upperlegs.jpg';
 import Waist from '../assets/images/waist.jpg';
+import BodyPart from './BodyPart';
 
-function HorizontalScrollbar({ data }) {
+function HorizontalScrollbar({ data, bodyPart, setBodyPart }) {
   const images = [
     { id: 'all', path: All },
     { id: 'back', path: Back },
@@ -36,22 +37,26 @@ function HorizontalScrollbar({ data }) {
     <>
       <p className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mx-4">
         {data.map((item) => (
-          <div
+          <button
             key={item.id || item}
             itemID={item.id || item}
             title={item.id || item}
             className="bg-cover bg-center h-40 sm:h-64 flex justify-center items-center hover:scale-105 rounded-lg"
+            type="button"
             style={{
               backgroundImage: `url(${getImagePath(item)})`,
               transition: 'transform 0.3s, filter 0.3s',
             }}
+            onClick={() => {
+              setBodyPart(item);
+            }}
           >
             <div className="w-full h-full bg-black bg-opacity-50 hover:bg-opacity-0 hover:scale-105 flex justify-center items-center rounded-lg">
-              <p className="bg-white">
-                {item}
+              <p className="text-cyan-400 text-2xl font-extrabold">
+                <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />
               </p>
             </div>
-          </div>
+          </button>
         ))}
       </p>
     </>
