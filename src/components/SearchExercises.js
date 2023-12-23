@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { exerciseOptions, fetchData } from './fetchData';
 import HorizontalScrollbar from './HorizontalScrollbar';
 
-function SearchExercises() {
+function SearchExercises({ setExercises, bodyPart, setBodyPart }) {
   const [search, setSearch] = useState('');
-  const [exercises, setExercises] = useState([]);
   const [bodyParts, setBodyParts] = useState([]);
 
   useEffect(() => {
@@ -20,7 +19,6 @@ function SearchExercises() {
     if (search) {
       const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
 
-      // console.log(exercisesData);
       const searchedExercises = exercisesData.filter(
         (exercise) => exercise.name.toLowerCase().includes(search)
         || exercise.target.toLowerCase().includes(search)
@@ -56,8 +54,7 @@ function SearchExercises() {
           Search
         </button>
       </div>
-      <HorizontalScrollbar data={bodyParts} />
-      {/* <HorizontalScrollbar /> */}
+      <HorizontalScrollbar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} />
     </>
   );
 }
