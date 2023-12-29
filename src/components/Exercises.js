@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { exerciseOptions, fetchData } from "./fetchData";
+import React from 'react';
+// import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { exerciseOptions, fetchData } from './fetchData';
 
-
-function Exercises({ exercises = [], setExercises, bodyPart })  {
+function Exercises({ exercises = [], setExercises, bodyPart }) {
   console.log(exercises);
 
   return (
@@ -11,7 +12,7 @@ function Exercises({ exercises = [], setExercises, bodyPart })  {
       <ul id="exercises">
         {exercises && exercises.length > 0 ? (
           exercises.map((exercise, index) => (
-          <li key={index}>{exercise.name}</li>
+            <li key={exercise.id}>{exercise.name}</li>
           ))
         ) : (
           <li>No exercises found</li>
@@ -20,5 +21,17 @@ function Exercises({ exercises = [], setExercises, bodyPart })  {
     </div>
   );
 }
+
+Exercises.propTypes = {
+  exercises: PropTypes.instanceOf(Array),
+  setExercises: PropTypes.func,
+  bodyPart: PropTypes.string,
+};
+
+Exercises.defaultProps = {
+  exercises: [],
+  setExercises: () => {},
+  bodyPart: '',
+};
 
 export default Exercises;
