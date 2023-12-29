@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { exerciseOptions, fetchData } from './fetchData';
 import HorizontalScrollbar from './HorizontalScrollbar';
 
-function SearchExercises({ setExercises, bodyPart, setBodyPart }) {
+function SearchExercises({ setExercises, bodyPart, setBodyParts }) {
   const [search, setSearch] = useState('');
-  const [bodyParts, setBodyParts] = useState([]);
+  const [bodyParts, setBodyPart] = useState([]);
 
   useEffect(() => {
     const fecthExercisesData = async () => {
@@ -58,5 +59,17 @@ function SearchExercises({ setExercises, bodyPart, setBodyPart }) {
     </>
   );
 }
+
+SearchExercises.propTypes = {
+  bodyPart: PropTypes.string,
+  setBodyParts: PropTypes.func,
+  setExercises: PropTypes.func,
+};
+
+SearchExercises.defaultProps = {
+  bodyPart: '',
+  setBodyParts: () => {},
+  setExercises: () => {},
+};
 
 export default SearchExercises;
