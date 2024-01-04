@@ -41,7 +41,7 @@ function HorizontalScrollbar({ data, bodyPart, setBodyPart }) {
             key={item.id || item}
             itemID={item.id || item}
             title={item.id || item}
-            className="bg-cover bg-center h-40 sm:h-64 flex justify-center items-center hover:scale-105 rounded-lg"
+            className="bg-cover bg-center h-40 sm:h-64 flex justify-center items-center hover:scale-105 rounded-lg border-2 border-transparent transition duration-300 ease-in-out hover:border-cyan-500"
             type="button"
             style={{
               backgroundImage: `url(${getImagePath(item)})`,
@@ -63,6 +63,7 @@ function HorizontalScrollbar({ data, bodyPart, setBodyPart }) {
   );
 }
 
+export default HorizontalScrollbar;
 // HorizontalScrollbar.propTypes = {
 //   data: PropTypes.instanceOf(Array),
 //   bodyPart: PropTypes.string,
@@ -74,5 +75,3 @@ function HorizontalScrollbar({ data, bodyPart, setBodyPart }) {
 //   bodyPart: '',
 //   setBodyPart: () => {},
 // };
-
-export default HorizontalScrollbar;

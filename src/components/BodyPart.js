@@ -10,9 +10,12 @@ function BodyPart({ item, setBodyPart, bodyPart }) {
       type="button"
       style={{
         textTransform: 'capitalize',
-        opacity: isSelected ? 1 : 0.5,
+        // opacity: isSelected ? 1 : 0.5,
+        opacity: 1,
         transform: isSelected ? 'scale(1.1)' : 'scale(1)',
         border: isSelected ? '2px solid cyan' : 'none',
+        borderRadius: isSelected ? '8px' : '0',
+        padding: '5px',
       }}
       onClick={() => {
         setBodyPart(item);
