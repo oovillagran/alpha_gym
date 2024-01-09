@@ -27,14 +27,15 @@ function BodyPart({ item, setBodyPart, bodyPart }) {
 }
 
 export default BodyPart;
-// BodyPart.propTypes = {
-//   item: PropTypes.instanceOf(Array),
-//   setBodyPart: PropTypes.func,
-//   bodyPart: PropTypes.string,
-// };
 
-// BodyPart.defaultProps = {
-//   item: [],
-//   setBodyPart: () => {},
-//   bodyPart: '',
-// };
+BodyPart.propTypes = {
+  item: PropTypes.instanceOf(Array),
+  setBodyPart: PropTypes.func,
+  bodyPart: PropTypes.string,
+};
+
+BodyPart.defaultProps = {
+  item: [],
+  setBodyPart: () => {},
+  bodyPart: '',
+};

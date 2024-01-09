@@ -17,7 +17,7 @@ const About = () => {
           <th>Mission</th>
           <th>Description</th>
           <th>Status</th>
-          <th> </th>
+          <th>Join</th>
         </tr>
         {about?.map((about) => (
           <tr key={about.about_id}>
