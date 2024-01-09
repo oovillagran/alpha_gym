@@ -64,14 +64,15 @@ function HorizontalScrollbar({ data, bodyPart, setBodyPart }) {
 }
 
 export default HorizontalScrollbar;
-// HorizontalScrollbar.propTypes = {
-//   data: PropTypes.instanceOf(Array),
-//   bodyPart: PropTypes.string,
-//   setBodyPart: PropTypes.func,
-// };
 
-// HorizontalScrollbar.defaultProps = {
-//   data: [],
-//   bodyPart: '',
-//   setBodyPart: () => {},
-// };
+HorizontalScrollbar.propTypes = {
+  data: PropTypes.instanceOf(Array),
+  bodyPart: PropTypes.string,
+  setBodyPart: PropTypes.func,
+};
+
+HorizontalScrollbar.defaultProps = {
+  data: [],
+  bodyPart: '',
+  setBodyPart: () => {},
+};
