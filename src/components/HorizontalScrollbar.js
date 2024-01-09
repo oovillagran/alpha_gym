@@ -41,6 +41,7 @@ function HorizontalScrollbar({ data, bodyPart, setBodyPart }) {
             key={item.id || item}
             itemID={item.id || item}
             title={item.id || item}
+            aria-label={item.id || item}
             className="bg-cover bg-center h-40 sm:h-64 flex justify-center items-center hover:scale-105 rounded-lg border-2 border-transparent transition duration-300 ease-in-out hover:border-cyan-500"
             type="button"
             style={{
