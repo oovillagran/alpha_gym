@@ -1,11 +1,12 @@
 import React from 'react';
 // import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { exerciseOptions, fetchData } from './fetchData';
+// import { exerciseOptions, fetchData } from './fetchData';
 import ExerciseCard from './ExerciseCard';
 
-function Exercises({ exercises, setExercises, bodyPart }) {
-  console.log(exercises);
+// function Exercises({ exercises, setExercises, bodyPart }) {
+function Exercises({ exercises }) {
+  // console.log(exercises);
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -20,27 +21,15 @@ function Exercises({ exercises, setExercises, bodyPart }) {
 }
 
 export default Exercises;
-// Exercises.propTypes = {
-  //   exercises: PropTypes.instanceOf(Array),
-  //   setExercises: PropTypes.func,
-  //   bodyPart: PropTypes.string,
-  // };
-  
-  // Exercises.defaultProps = {
-    //   exercises: [],
-    //   setExercises: () => {},
-    //   bodyPart: '',
-    // };
-    
-    
-    {/* {exercises && exercises.length > 0 ? ( */}
-    {/* ) : (
-      <li>No exercises found</li>
-    )} */}
-    {/* {exercises && exercises.length > 0 ? (
-      exercises.map((exercise) => (
-        <li key={exercise.id}>{exercise.name}</li>
-      ))
-    ) : (
-      <li>No exercises found</li>
-    )} */}
+
+Exercises.propTypes = {
+  exercises: PropTypes.instanceOf(Array),
+  // setExercises: PropTypes.func,
+  // bodyPart: PropTypes.string,
+};
+
+Exercises.defaultProps = {
+  exercises: [],
+  // setExercises: () => {},
+  // bodyPart: '',
+};
