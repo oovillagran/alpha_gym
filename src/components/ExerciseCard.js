@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function ExerciseCard({ exercise }) {
   return (
@@ -16,7 +17,7 @@ function ExerciseCard({ exercise }) {
               backgroundColor: '#ffa9a9',
               fontSize: '1rem',
             }}
-            className='px-2 rounded-lg font-bold'
+            className="px-2 rounded-lg font-bold"
             onClick={() => {}}
           >
             {exercise.bodyPart}
@@ -30,7 +31,7 @@ function ExerciseCard({ exercise }) {
               backgroundColor: '#fcc757',
               fontSize: '1rem',
             }}
-            className='px-2 rounded-lg font-bold'
+            className="px-2 rounded-lg font-bold"
             onClick={() => {}}
           >
             {exercise.target}
@@ -47,9 +48,16 @@ function ExerciseCard({ exercise }) {
           </p>
         </div>
       </NavLink>
-      {/* ExerciseCard */}
     </div>
   );
 }
 
 export default ExerciseCard;
+
+ExerciseCard.propTypes = {
+  exercise: PropTypes.string,
+};
+
+ExerciseCard.defaultProps = {
+  exercise: '',
+};
