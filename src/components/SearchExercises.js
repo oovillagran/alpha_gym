@@ -64,14 +64,14 @@ function SearchExercises({ setExercises, bodyPart, setBodyPart }) {
 }
 
 export default SearchExercises;
-// SearchExercises.propTypes = {
-//   bodyPart: PropTypes.string,
-//   setBodyParts: PropTypes.func,
-//   setExercises: PropTypes.func,
-// };
+SearchExercises.propTypes = {
+  bodyPart: PropTypes.string,
+  setBodyPart: PropTypes.func,
+  setExercises: PropTypes.func,
+};
 
-// SearchExercises.defaultProps = {
-//   bodyPart: '',
-//   setBodyParts: () => {},
-//   setExercises: () => {},
-// };
+SearchExercises.defaultProps = {
+  bodyPart: '',
+  setBodyPart: () => {},
+  setExercises: () => {},
+};
