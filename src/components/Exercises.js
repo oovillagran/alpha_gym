@@ -1,21 +1,51 @@
-import React from 'react';
-// import React, { useEffect, useState } from 'react';
+// import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 // import { exerciseOptions, fetchData } from './fetchData';
 import ExerciseCard from './ExerciseCard';
 
 // function Exercises({ exercises, setExercises, bodyPart }) {
 function Exercises({ exercises }) {
-  // console.log(exercises);
+  const [currentPage, setCurrentPage] = useState(1);
+  const exercisesPerPage = 12;
+
+  const indexOfLastExercise = currentPage * exercisesPerPage;
+  const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
+  const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise);
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  }
 
   return (
-    <div className="flex flex-col justify-center items-center">
+
+    <div
+      className="flex flex-col justify-center items-center"
+      style={{
+        background: '#fffafb',
+      }}
+    >
       <h3 className="mb-44">Showing Results</h3>
-      <ul id="exercises" className="grid grid-cols-2 sm:grid-cols-3 gap-10">
-        {exercises.map((exercise) => (
+      <ul id="exercises" className="grid grid-cols-2 sm:grid-cols-4 gap-12 mx-8">
+        {currentExercises.map((exercise) => (
           <ExerciseCard key={exercise.id} exercise={exercise} />
         ))}
       </ul>
+      {/* Pagination */}
+      <div className="flex justify-center items-center my-10">
+        {exercises.length > exercisesPerPage &&
+          Array.from({ length: Math.ceil(exercises.length / exercisesPerPage) }, (_, i) => (
+            <button
+              key={i + 1}
+              onClick={() => paginate(i + 1)}
+              className={`mx-2 px-3 py-1 rounded ${
+                currentPage === i + 1 ? 'bg-gray-600 text-white' : 'bg-gray-300 text-gray-600'
+              }`}
+            >
+              {i + 1}
+            </button>
+          ))}
+      </div>
     </div>
   );
 }
