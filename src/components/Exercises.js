@@ -15,7 +15,8 @@ function Exercises({ exercises }) {
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
-  }
+  };
+
 
   return (
 
@@ -31,12 +32,25 @@ function Exercises({ exercises }) {
           <ExerciseCard key={exercise.id} exercise={exercise} />
         ))}
       </ul>
+
       {/* Pagination */}
       <div className="flex justify-center items-center my-10">
-        {exercises.length > exercisesPerPage &&
-          Array.from({ length: Math.ceil(exercises.length / exercisesPerPage) }, (_, i) => (
+        <button
+          type="button"
+          onClick={() => setCurrentPage((prevPage) => Math.max(prevPage - 1, 1))}
+          className={`mx-2 px-3 py-1 rounded ${
+            currentPage === 1 ? 'bg-gray-300 text-gray-600 cursor-not-allowed' : 'bg-gray-600 text-white'
+          }`}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
+
+        {exercises.length > exercisesPerPage
+          && Array.from({ length: Math.ceil(exercises.length / exercisesPerPage) }, (_, i) => (
             <button
               key={i + 1}
+              type="button"
               onClick={() => paginate(i + 1)}
               className={`mx-2 px-3 py-1 rounded ${
                 currentPage === i + 1 ? 'bg-gray-600 text-white' : 'bg-gray-300 text-gray-600'
@@ -45,6 +59,19 @@ function Exercises({ exercises }) {
               {i + 1}
             </button>
           ))}
+
+        <button
+          type="button"
+          onClick={() => setCurrentPage((prevPage) => Math.min(prevPage + 1, Math.ceil(exercises.length / exercisesPerPage)))}
+          className={`mx-2 px-3 py-1 rounded ${
+            currentPage === Math.ceil(exercises.length / exercisesPerPage)
+            ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
+            : 'bg-gray-600 text-white'
+          }`}
+          disabled={currentPage === Math.ceil(exercises.length / exercisesPerPage)}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
