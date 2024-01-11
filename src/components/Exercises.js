@@ -5,9 +5,13 @@ import PropTypes from 'prop-types';
 import ExerciseCard from './ExerciseCard';
 
 // function Exercises({ exercises, setExercises, bodyPart }) {
-function Exercises({ exercises }) {
+function Exercises({ exercises, resetPagination }) {
   const [currentPage, setCurrentPage] = useState(1);
   const exercisesPerPage = 12;
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [exercises, resetPagination]);
 
   const indexOfLastExercise = currentPage * exercisesPerPage;
   const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
@@ -16,7 +20,6 @@ function Exercises({ exercises }) {
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-
 
   return (
 
@@ -62,11 +65,13 @@ function Exercises({ exercises }) {
 
         <button
           type="button"
-          onClick={() => setCurrentPage((prevPage) => Math.min(prevPage + 1, Math.ceil(exercises.length / exercisesPerPage)))}
+          onClick={() => setCurrentPage(
+            (prevPage) => Math.min(prevPage + 1, Math.ceil(exercises.length / exercisesPerPage)),
+          )}
           className={`mx-2 px-3 py-1 rounded ${
             currentPage === Math.ceil(exercises.length / exercisesPerPage)
-            ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
-            : 'bg-gray-600 text-white'
+              ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
+              : 'bg-gray-600 text-white'
           }`}
           disabled={currentPage === Math.ceil(exercises.length / exercisesPerPage)}
         >
@@ -83,10 +88,12 @@ Exercises.propTypes = {
   exercises: PropTypes.instanceOf(Array),
   // setExercises: PropTypes.func,
   // bodyPart: PropTypes.string,
+  resetPagination: PropTypes.bool,
 };
 
 Exercises.defaultProps = {
   exercises: [],
   // setExercises: () => {},
   // bodyPart: '',
+  resetPagination: false,
 };
