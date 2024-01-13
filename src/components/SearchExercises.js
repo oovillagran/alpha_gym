@@ -4,6 +4,7 @@ import { exerciseOptions, fetchData } from './fetchData';
 import HorizontalScrollbar from './HorizontalScrollbar';
 
 function SearchExercises({ setExercises, bodyPart, setBodyPart }) {
+// function SearchExercises({ setExercises, bodyPart, setBodyPart, setCurrentPage }) {
   const [search, setSearch] = useState('');
   const [bodyParts, setBodyParts] = useState([]);
 
@@ -28,7 +29,9 @@ function SearchExercises({ setExercises, bodyPart, setBodyPart }) {
       );
 
       setSearch('');
+      // setCurrentPage(1);
       setExercises(searchedExercises);
+      // setBodyPart('all');
     }
   };
 
@@ -64,14 +67,17 @@ function SearchExercises({ setExercises, bodyPart, setBodyPart }) {
 }
 
 export default SearchExercises;
+
 SearchExercises.propTypes = {
   bodyPart: PropTypes.string,
   setBodyPart: PropTypes.func,
   setExercises: PropTypes.func,
+  // setCurrentPage: PropTypes.func,
 };
 
 SearchExercises.defaultProps = {
   bodyPart: '',
   setBodyPart: () => {},
   setExercises: () => {},
+  // setCurrentPage: () => {},
 };
