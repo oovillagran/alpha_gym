@@ -5,6 +5,7 @@ import Exercises from './Exercises';
 function Home() {
   const [bodyPart, setBodyPart] = useState('all');
   const [exercises, setExercises] = useState([]);
+  console.log(bodyPart);
   // const [currentPage, setCurrentPage] = useState(1);
 
   return (
