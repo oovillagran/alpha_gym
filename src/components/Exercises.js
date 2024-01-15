@@ -1,11 +1,13 @@
 // import React from 'react';
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-// import { exerciseOptions, fetchData } from './fetchData';
+import { exerciseOptions, fetchData } from './fetchData';
 import ExerciseCard from './ExerciseCard';
 
 // function Exercises({ exercises, setExercises, bodyPart }) {
-function Exercises({ exercises, resetPagination }) {
+function Exercises({
+  exercises, resetPagination, setExercises, bodyPart,
+}) {
   const [currentPage, setCurrentPage] = useState(1);
   const exercisesPerPage = 12;
 
@@ -20,6 +22,22 @@ function Exercises({ exercises, resetPagination }) {
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+  useEffect(() => {
+    const fetchExercisesData = async () => {
+      let exercisesData = [];
+
+      if (bodyPart === 'all') {
+        exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
+      } else {
+        exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions);
+      }
+
+      setExercises(exercisesData);
+    };
+
+    fetchExercisesData();
+  }, [bodyPart]);
 
   return (
 
@@ -86,14 +104,14 @@ export default Exercises;
 
 Exercises.propTypes = {
   exercises: PropTypes.instanceOf(Array),
-  // setExercises: PropTypes.func,
-  // bodyPart: PropTypes.string,
+  setExercises: PropTypes.func,
+  bodyPart: PropTypes.string,
   resetPagination: PropTypes.bool,
 };
 
 Exercises.defaultProps = {
   exercises: [],
-  // setExercises: () => {},
-  // bodyPart: '',
+  setExercises: () => {},
+  bodyPart: '',
   resetPagination: false,
 };
