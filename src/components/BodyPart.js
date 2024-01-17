@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function BodyPart({ item, setBodyPart, bodyPart }) {
-  // console.log(item)
   const isSelected = item === bodyPart;
 
   return (
