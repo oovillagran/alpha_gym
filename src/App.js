@@ -8,6 +8,7 @@ import Home from './pages/Home';
 // import SearchExercises from './components/SearchExercises';
 // import Exercises from './components/Exercises';
 import Contact from './components/Contact';
+import ExercisesDetail from './pages/ExercisesDetail';
 import './App.css';
 
 function App() {
@@ -17,11 +18,12 @@ function App() {
         <div className="App">
           <header className="App-header">
             <Header />
-            <Home />
+            {/* <Home /> */}
             <Routes>
-              <Route path="/" />
+              <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/exercises" element={<ExercisesDetail />} />
             </Routes>
           </header>
         </div>
