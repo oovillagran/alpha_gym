@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import SearchExercises from './SearchExercises';
-import Exercises from './Exercises';
+import SearchExercises from '../components/SearchExercises';
+import Exercises from '../components/Exercises';
 
 function Home() {
   const [bodyPart, setBodyPart] = useState('all');

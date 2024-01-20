@@ -20,6 +20,7 @@ export default function Header() {
             <NavLink to="/" className="hover:underline font-content">Home</NavLink>
             <NavLink to="/about" className="hover:underline font-content">About</NavLink>
             <NavLink to="/contact" className="hover:underline font-content">Contact</NavLink>
+            <NavLink to="/exercises" className="hover:underline font-content">Exercises</NavLink>
           </div>
         </header>
         <HeroBanner />
