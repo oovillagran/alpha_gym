@@ -3,17 +3,18 @@ import PropTypes from 'prop-types';
 
 function Detail({ exerciseDetail }) {
   const {
-    bodyPart, gifUrl, name, target, equipment,
+    // bodyPart, gifUrl, name, target, equipment,
+    gifUrl, name, target,
   } = exerciseDetail;
 
   return (
-    <div className="flex items-center">
+    <div className="flex flex-col md:flex-row items-center">
       <img src={gifUrl} alt={name} loading="lazy" className="h-96" />
       <div>
-        <p className="capitalize font-bold">
+        <p className="capitalize font-bold text-2xl md:text-6xl">
           {name}
         </p>
-        <p>
+        <p className="text-xl sm:text-2xl">
           Exercises keep you healthy.
           <span className="font-bold capitalize text-fuchsia-600">{name}</span>
           {' '}
@@ -21,7 +22,9 @@ function Detail({ exerciseDetail }) {
           to target your
           {' '}
           <span className="font-bold text-purple-700">{target}</span>
-          . It will help improve your mood and gain energy.
+          .
+          <br />
+          It will help improve your mood and gain energy.
         </p>
       </div>
     </div>
