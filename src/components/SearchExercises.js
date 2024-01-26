@@ -20,7 +20,6 @@ function SearchExercises({ setExercises, bodyPart, setBodyPart }) {
   const handleSearch = async () => {
     if (search) {
       const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
-      // console.log(exercisesData);
       const searchedExercises = exercisesData.filter(
         (exercise) => exercise.name.toLowerCase().includes(search)
         || exercise.target.toLowerCase().includes(search)
@@ -29,9 +28,7 @@ function SearchExercises({ setExercises, bodyPart, setBodyPart }) {
       );
 
       setSearch('');
-      // setCurrentPage(1);
       setExercises(searchedExercises);
-      // setBodyPart('all');
     }
   };
 
@@ -61,7 +58,7 @@ function SearchExercises({ setExercises, bodyPart, setBodyPart }) {
           Search
         </button>
       </div>
-      <HorizontalScrollbar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+      <HorizontalScrollbar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} isBodyParts />
     </>
   );
 }
