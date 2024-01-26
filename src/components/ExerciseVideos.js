@@ -5,7 +5,7 @@ function ExerciseVideos({ exerciseVideos, name }) {
   if (!exerciseVideos.length) return 'Loading...';
 
   return (
-    <div>
+    <div className="my-10">
       <h3 className="mb-10 font-bold text-lg md:text-2xl">
         Watch
         {' '}
@@ -14,14 +14,20 @@ function ExerciseVideos({ exerciseVideos, name }) {
         exercise videos.
       </h3>
       <div className="flex flex-col lg:flex-row flex-wrap justify-center items-center gap-5 lg:gap-10">
-        {exerciseVideos?.slice(0, 4).map((item) => (
+        {exerciseVideos?.slice(0, 6).map((item) => (
           <a
             key={item.video.videoId}
             href={`https://www.youtube.com/watch?v=${item.video.videoId}`}
             target="_blank"
             rel="noreferrer"
           >
-            <img src={item.video.thumbnails[0].url} alt={item.video.title} className="rounded-md h-60" />
+            <img src={item.video.thumbnails[0].url} alt={item.video.title} className="rounded-md h-52" />
+            <p className="font-bold text-base capitalize">
+              {item.video.title}
+            </p>
+            <p className="text-sm font-bold">
+              {item.video.channelName}
+            </p>
           </a>
         ))}
       </div>

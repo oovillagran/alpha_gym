@@ -39,7 +39,7 @@ function Detail({ exerciseDetail }) {
           is one of the best exercises
           to target your
           {' '}
-          <span className="font-bold text-purple-700">{target}</span>
+          <span className="font-bold text-purple-700 capitalize">{target}</span>
           .
           <br />
           It will help improve your mood and gain energy.
