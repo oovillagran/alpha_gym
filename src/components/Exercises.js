@@ -50,14 +50,14 @@ function Exercises({
       <h3 className="mb-16 font-content text-red-400 text-2xl lg:text-6xl font-extrabold">
         Showing Results
       </h3>
-      <ul id="exercises" className="grid grid-cols-2 sm:grid-cols-4 gap-12 mx-8">
+      <ul id="exercises" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mx-8">
         {currentExercises.map((exercise) => (
           <ExerciseCard key={exercise.id} exercise={exercise} />
         ))}
       </ul>
 
       {/* Pagination */}
-      <div className="flex justify-center items-center my-10">
+      <div className="flex justify-center items-center my-10 border border-red-700 flex-wrap">
         <button
           type="button"
           onClick={() => setCurrentPage((prevPage) => Math.max(prevPage - 1, 1))}
