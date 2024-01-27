@@ -34,12 +34,12 @@ function SearchExercises({ setExercises, bodyPart, setBodyPart }) {
 
   return (
     <>
-      <p className="flex justify-center items-center mt-36 p-20 font-content font-extrabold text-6xl leading-relaxed">
+      <p className="flex justify-center items-center mt-5 md:mt-10 p-10 font-content font-extrabold text-2xl md:text-6xl leading-relaxed">
         Awesome Exercises
         <br />
         You Should Know
       </p>
-      <div className="flex justify-center items-center px-60 py-20">
+      <div className="flex justify-center items-center px-5 md:px-60 py-5 md:py-20">
         <input
           className="border border-gray-300 p-2 rounded-md w-full"
           placeholder="Search by Category"
@@ -58,7 +58,12 @@ function SearchExercises({ setExercises, bodyPart, setBodyPart }) {
           Search
         </button>
       </div>
-      <HorizontalScrollbar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} isBodyParts />
+      <HorizontalScrollbar
+        data={bodyParts}
+        bodyPart={bodyPart}
+        setBodyPart={setBodyPart}
+        isBodyParts
+      />
     </>
   );
 }

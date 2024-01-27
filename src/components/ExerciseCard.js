@@ -39,7 +39,7 @@ function ExerciseCard({ exercise }) {
         </div>
         <div className="flex justify-center items-center">
           <p
-            className="pb-8 mt-8 font-bold"
+            className="flex pb-8 mt-8 font-bold flex-wrap"
             style={{
               textTransform: 'capitalize',
             }}
