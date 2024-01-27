@@ -3,25 +3,38 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { exerciseOptions, fetchData } from './fetchData';
 import ExerciseCard from './ExerciseCard';
+import Pagination from './Pagination';
 
 // function Exercises({ exercises, setExercises, bodyPart }) {
 function Exercises({
   exercises, resetPagination, setExercises, bodyPart,
 }) {
   const [currentPage, setCurrentPage] = useState(1);
+  const [visiblePageRange, setVisiblePageRange] = useState([1, 10]);
   const exercisesPerPage = 12;
 
   useEffect(() => {
     setCurrentPage(1);
   }, [exercises, resetPagination]);
 
+  const totalPages = Math.ceil(exercises.length / exercisesPerPage);
   const indexOfLastExercise = currentPage * exercisesPerPage;
   const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
   const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise);
 
-  const paginate = (pageNumber) => {
+  const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+  useEffect(() => {
+    const updateVisiblePageRange = () => {
+      const rightBoundary = Math.min(currentPage + Math.floor(visiblePageRange[1] / 2), totalPages);
+      const leftBoundary = Math.max(rightBoundary - visiblePageRange[1] + 1, 1);
+      setVisiblePageRange([leftBoundary, rightBoundary]);
+    };
+
+    updateVisiblePageRange();
+  }, [currentPage, totalPages, visiblePageRange]);
 
   useEffect(() => {
     const fetchExercisesData = async () => {
@@ -57,12 +70,25 @@ function Exercises({
       </ul>
 
       {/* Pagination */}
-      <div className="flex justify-center items-center my-10 border border-red-700 flex-wrap">
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
+
+      <div className="text-gray-500">
+        Showing pages:
+        {visiblePageRange[0]}
+        -
+        {visiblePageRange[1]}
+      </div>
+      {/* <div className="flex justify-center items-center my-10 border border-red-700 flex-wrap">
         <button
           type="button"
           onClick={() => setCurrentPage((prevPage) => Math.max(prevPage - 1, 1))}
           className={`mx-2 px-3 py-1 rounded ${
-            currentPage === 1 ? 'bg-gray-300 text-gray-600 cursor-not-allowed' : 'bg-gray-600 text-white'
+          currentPage === 1
+          ? 'bg-gray-300 text-gray-600 cursor-not-allowed' : 'bg-gray-600 text-white'
           }`}
           disabled={currentPage === 1}
         >
@@ -97,7 +123,7 @@ function Exercises({
         >
           Next
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }
