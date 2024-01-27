@@ -14,7 +14,9 @@ import Waist from '../assets/images/waist.jpg';
 import BodyPart from './BodyPart';
 import ExerciseCard from './ExerciseCard';
 
-function HorizontalScrollbar({ data, bodyPart, setBodyPart, isBodyParts }) {
+function HorizontalScrollbar({
+  data, bodyPart, setBodyPart, isBodyParts,
+}) {
   const images = [
     { id: 'all', path: All },
     { id: 'back', path: Back },
@@ -55,10 +57,9 @@ function HorizontalScrollbar({ data, bodyPart, setBodyPart, isBodyParts }) {
           >
             <div className="w-full h-full bg-black bg-opacity-50 hover:bg-opacity-0 hover:scale-105 flex justify-center items-center rounded-lg">
               <p className="text-cyan-400 text-2xl font-extrabold">
-                {isBodyParts ?
-                  <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />
-                  : <ExerciseCard exercise={item} />
-                }
+                {isBodyParts
+                  ? <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+                  : <ExerciseCard exercise={item} />}
               </p>
             </div>
           </button>
@@ -74,10 +75,12 @@ HorizontalScrollbar.propTypes = {
   data: PropTypes.instanceOf(Array),
   bodyPart: PropTypes.string,
   setBodyPart: PropTypes.func,
+  isBodyParts: PropTypes.bool,
 };
 
 HorizontalScrollbar.defaultProps = {
   data: [],
   bodyPart: '',
   setBodyPart: () => {},
+  isBodyParts: false,
 };

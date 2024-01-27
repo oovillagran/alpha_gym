@@ -37,7 +37,7 @@ function ExercisesDetail() {
   }, [id]);
 
   return (
-    <div className="p-20">
+    <div className="p-10 md:p-20">
       <Detail exerciseDetail={exerciseDetail} />
       <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name} />
       <SimilarExercises

@@ -13,7 +13,7 @@ function ExerciseVideos({ exerciseVideos, name }) {
         {' '}
         exercise videos.
       </h3>
-      <div className="flex flex-col lg:flex-row flex-wrap justify-center items-center gap-5 lg:gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-10">
         {exerciseVideos?.slice(0, 6).map((item) => (
           <a
             key={item.video.videoId}
@@ -21,7 +21,7 @@ function ExerciseVideos({ exerciseVideos, name }) {
             target="_blank"
             rel="noreferrer"
           >
-            <img src={item.video.thumbnails[0].url} alt={item.video.title} className="rounded-md h-52" />
+            <img src={item.video.thumbnails[0].url} alt={item.video.title} className="rounded-md h-80 md:h-52 mb-2" />
             <p className="font-bold text-base capitalize">
               {item.video.title}
             </p>

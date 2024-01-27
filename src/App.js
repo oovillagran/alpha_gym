@@ -15,7 +15,12 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <div className="App">
+        <div
+          className="App"
+          style={{
+            background: '#fffafb',
+          }}
+        >
           <header className="App-header">
             <Header />
             {/* <Home /> */}

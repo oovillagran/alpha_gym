@@ -42,12 +42,14 @@ function Exercises({
   return (
 
     <div
-      className="flex flex-col justify-center items-center"
+      className="flex flex-col justify-center items-center mt-10"
       style={{
         background: '#fffafb',
       }}
     >
-      <h3 className="mb-44">Showing Results</h3>
+      <h3 className="mb-16 font-content text-red-400 text-2xl lg:text-6xl font-extrabold">
+        Showing Results
+      </h3>
       <ul id="exercises" className="grid grid-cols-2 sm:grid-cols-4 gap-12 mx-8">
         {currentExercises.map((exercise) => (
           <ExerciseCard key={exercise.id} exercise={exercise} />

@@ -6,7 +6,7 @@ function Loader() {
     <div>
       <Circles />
     </div>
-  )
+  );
 }
 
-export default Loader
+export default Loader;
