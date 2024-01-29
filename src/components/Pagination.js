@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Pagination({ currentPage, totalPages, onPageChange }) {
-  const visiblePages = 10;
+  const visiblePages = 5;
 
   const getPageNumbers = () => {
     if (totalPages <= visiblePages) {
@@ -12,15 +12,21 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
     const leftOffset = Math.max(currentPage - Math.floor(visiblePages / 2), 1);
     const rightOffset = Math.min(leftOffset + visiblePages - 1, totalPages);
 
-    if (rightOffset - leftOffset + 1 < visiblePages) {
-      return Array.from({ length: visiblePages }, (_, i) => leftOffset + i);
-    }
+    const pagesToShow = [];
 
     if (leftOffset > 1) {
-      return [1, '...', ...Array.from({ length: visiblePages - 2 }, (_, i) => leftOffset + i), '...', totalPages];
+      pagesToShow.push(1, '...');
     }
 
-    return [...Array.from({ length: visiblePages - 1 }, (_, i) => i + 1), '...', totalPages];
+    for (let i = leftOffset; i <= rightOffset; i + 1) {
+      pagesToShow.push(i);
+    }
+
+    if (rightOffset < totalPages) {
+      pagesToShow.push('...', totalPages);
+    }
+
+    return pagesToShow;
   };
 
   return (
@@ -69,13 +75,13 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
 export default Pagination;
 
 Pagination.propTypes = {
-  currentPage: PropTypes.string,
-  totalPages: PropTypes.string,
+  currentPage: PropTypes.number,
+  totalPages: PropTypes.number,
   onPageChange: PropTypes.func,
 };
 
 Pagination.defaultProps = {
-  currentPage: '',
-  totalPages: '',
+  currentPage: 1,
+  totalPages: 1,
   onPageChange: () => {},
 };
