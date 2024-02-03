@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import next from '../assets/icons/chevron_right.svg';
+import previous from '../assets/icons/chevron_left.svg';
 
 function Pagination({ currentPage, totalPages, onPageChange }) {
   const visiblePages = 5;
@@ -18,7 +20,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
       pagesToShow.push(1, '...');
     }
 
-    for (let i = leftOffset; i <= rightOffset; i + 1) {
+    for (let i = leftOffset; i <= rightOffset; i += 1) {
       pagesToShow.push(i);
     }
 
@@ -39,7 +41,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
         }`}
         disabled={currentPage === 1}
       >
-        Previous
+        <img src={previous} alt="next_page" className="text-white" style={{ filter: 'invert(100%)' }} />
       </button>
 
       {getPageNumbers().map((page) => (
@@ -66,7 +68,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
         }`}
         disabled={currentPage === totalPages}
       >
-        Next
+        <img src={next} alt="next_page" className="text-white" style={{ filter: 'invert(100%)' }} />
       </button>
     </div>
   );
