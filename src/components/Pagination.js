@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useMediaQuery } from 'react-responsive';
 import next from '../assets/icons/chevron_right.svg';
 import previous from '../assets/icons/chevron_left.svg';
 
 function Pagination({ currentPage, totalPages, onPageChange }) {
-  const visiblePages = 5;
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const visiblePages = isMobile ? 2 : 10;
 
   const getPageNumbers = () => {
     if (totalPages <= visiblePages) {
@@ -36,7 +38,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
       <button
         type="button"
         onClick={() => onPageChange(Math.max(currentPage - 1, 1))}
-        className={`mx-2 px-3 py-1 rounded ${
+        className={`mx-${isMobile ? 1 : 2} px-2 py-1 rounded ${
           currentPage === 1 ? 'bg-gray-300 text-gray-600 cursor-not-allowed' : 'bg-gray-600 text-white'
         }`}
         disabled={currentPage === 1}
@@ -49,7 +51,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
           key={page}
           type="button"
           onClick={() => onPageChange(page)}
-          className={`mx-2 px-3 py-1 rounded ${
+          className={`mx-${isMobile ? 1 : 2} px-2 py-1 rounded ${
             currentPage === page ? 'bg-gray-600 text-white' : 'bg-gray-300 text-gray-600'
           }`}
           disabled={typeof page !== 'number'}
@@ -61,7 +63,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
       <button
         type="button"
         onClick={() => onPageChange(Math.min(currentPage + 1, totalPages))}
-        className={`mx-2 px-3 py-1 rounded ${
+        className={`mx-${isMobile ? 1 : 2} px-2 py-1 rounded ${
           currentPage === totalPages
             ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
             : 'bg-gray-600 text-white'
