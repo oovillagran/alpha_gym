@@ -1,6 +1,6 @@
 function HeroBanner() {
   return (
-    <div className="flex place-items-center justify-center border border-red-500 h-full">
+    <div className="flex place-items-center justify-center h-full">
       <div className="p-10">
         <h1 className="font-abc text-3xl md:text-5xl font-bold text-pink-700">
           Body, Working & Fitness
