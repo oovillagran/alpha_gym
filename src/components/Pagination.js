@@ -34,7 +34,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
   };
 
   return (
-    <div className="flex justify-center items-center my-10 border border-red-700 flex-wrap">
+    <div className="flex justify-center items-center my-10 flex-wrap gap-2">
       <button
         type="button"
         onClick={() => onPageChange(Math.max(currentPage - 1, 1))}

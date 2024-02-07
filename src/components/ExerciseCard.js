@@ -55,9 +55,5 @@ function ExerciseCard({ exercise }) {
 export default ExerciseCard;
 
 ExerciseCard.propTypes = {
-  exercise: PropTypes.string,
-};
-
-ExerciseCard.defaultProps = {
-  exercise: '',
+  exercise: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
