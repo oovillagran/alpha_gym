@@ -4,7 +4,6 @@ import { exerciseOptions, fetchData } from './fetchData';
 import HorizontalScrollbar from './HorizontalScrollbar';
 
 function SearchExercises({ setExercises, bodyPart, setBodyPart }) {
-// function SearchExercises({ setExercises, bodyPart, setBodyPart, setCurrentPage }) {
   const [search, setSearch] = useState('');
   const [bodyParts, setBodyParts] = useState([]);
 
@@ -43,16 +42,13 @@ function SearchExercises({ setExercises, bodyPart, setBodyPart }) {
         <input
           className="border border-gray-300 p-2 rounded-md w-full"
           placeholder="Search by Category"
-          // value=''
           value={search}
           onChange={(e) => setSearch(e.target.value.toLowerCase())}
-          // onChange={() => {}}
           type="text"
         />
         <button
           type="button"
-          className="bg-red-500 hover:bg-slate-200 border border-red-500 text-white hover:text-red-500 py-2 px-8 rounded-md"
-          // onClick={() => {}}
+          className="bg-red-500 hover:bg-slate-200 text-white hover:text-red-500 py-2 px-8 rounded-md"
           onClick={handleSearch}
         >
           Search
@@ -74,12 +70,10 @@ SearchExercises.propTypes = {
   bodyPart: PropTypes.string,
   setBodyPart: PropTypes.func,
   setExercises: PropTypes.func,
-  // setCurrentPage: PropTypes.func,
 };
 
 SearchExercises.defaultProps = {
   bodyPart: '',
   setBodyPart: () => {},
   setExercises: () => {},
-  // setCurrentPage: () => {},
 };

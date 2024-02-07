@@ -1,16 +1,13 @@
-// import React from 'react';
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { exerciseOptions, fetchData } from './fetchData';
 import ExerciseCard from './ExerciseCard';
 import Pagination from './Pagination';
 
-// function Exercises({ exercises, setExercises, bodyPart }) {
 function Exercises({
   exercises, resetPagination, setExercises, bodyPart,
 }) {
   const [currentPage, setCurrentPage] = useState(1);
-  const [visiblePageRange, setVisiblePageRange] = useState([1, 10]);
   const exercisesPerPage = 12;
 
   useEffect(() => {
@@ -26,15 +23,15 @@ function Exercises({
     setCurrentPage(pageNumber);
   };
 
-  useEffect(() => {
-    const updateVisiblePageRange = () => {
-      const rightBoundary = Math.min(currentPage + Math.floor(visiblePageRange[1] / 2), totalPages);
-      const leftBoundary = Math.max(rightBoundary - visiblePageRange[1] + 1, 1);
-      setVisiblePageRange([leftBoundary, rightBoundary]);
-    };
+  // useEffect(() => {
+  //   const updateVisiblePageRange = () => {
+  //     const rightBoundary = Math.min(currentPage + Math.floor(visiblePageRange[1] / 2), totalPages);
+  //     const leftBoundary = Math.max(rightBoundary - visiblePageRange[1] + 1, 1);
+  //     setVisiblePageRange([leftBoundary, rightBoundary]);
+  //   };
 
-    updateVisiblePageRange();
-  }, [currentPage, totalPages, visiblePageRange]);
+  //   updateVisiblePageRange();
+  // }, [currentPage, totalPages, visiblePageRange]);
 
   useEffect(() => {
     const fetchExercisesData = async () => {
@@ -50,7 +47,7 @@ function Exercises({
     };
 
     fetchExercisesData();
-  }, [bodyPart]);
+  }, [bodyPart, setExercises]);
 
   return (
 
@@ -75,55 +72,6 @@ function Exercises({
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
-
-      <div className="text-gray-500">
-        Showing pages:
-        {visiblePageRange[0]}
-        -
-        {visiblePageRange[1]}
-      </div>
-      {/* <div className="flex justify-center items-center my-10 border border-red-700 flex-wrap">
-        <button
-          type="button"
-          onClick={() => setCurrentPage((prevPage) => Math.max(prevPage - 1, 1))}
-          className={`mx-2 px-3 py-1 rounded ${
-          currentPage === 1
-          ? 'bg-gray-300 text-gray-600 cursor-not-allowed' : 'bg-gray-600 text-white'
-          }`}
-          disabled={currentPage === 1}
-        >
-          Previous
-        </button>
-
-        {exercises.length > exercisesPerPage
-          && Array.from({ length: Math.ceil(exercises.length / exercisesPerPage) }, (_, i) => (
-            <button
-              key={i + 1}
-              type="button"
-              onClick={() => paginate(i + 1)}
-              className={`mx-2 px-3 py-1 rounded ${
-                currentPage === i + 1 ? 'bg-gray-600 text-white' : 'bg-gray-300 text-gray-600'
-              }`}
-            >
-              {i + 1}
-            </button>
-          ))}
-
-        <button
-          type="button"
-          onClick={() => setCurrentPage(
-            (prevPage) => Math.min(prevPage + 1, Math.ceil(exercises.length / exercisesPerPage)),
-          )}
-          className={`mx-2 px-3 py-1 rounded ${
-            currentPage === Math.ceil(exercises.length / exercisesPerPage)
-              ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
-              : 'bg-gray-600 text-white'
-          }`}
-          disabled={currentPage === Math.ceil(exercises.length / exercisesPerPage)}
-        >
-          Next
-        </button>
-      </div> */}
     </div>
   );
 }

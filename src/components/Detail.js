@@ -26,14 +26,13 @@ function Detail({ exerciseDetail }) {
   ];
 
   return (
-    // <div className="flex flex-col md:flex-row items-center">
-    <div className="grid grid-cols-1 md:grid-cols-2 items-center">
+    <div className="grid grid-cols-1 py-5 md:grid-cols-2 items-center">
       <img src={gifUrl} alt={name} loading="lazy" className="h-96" />
       <div>
         <p className="capitalize font-bold text-2xl md:text-6xl">
           {name}
         </p>
-        <p className="text-xl sm:text-2xl">
+        <p className="text-xl sm:text-2xl py-6">
           Exercises keep you healthy.
           <span className="font-bold capitalize text-fuchsia-600">{name}</span>
           {' '}
