@@ -56,11 +56,11 @@ function HorizontalScrollbar({
             }}
           >
             <div className="w-full h-full bg-black bg-opacity-50 hover:bg-opacity-0 hover:scale-105 flex justify-center items-center rounded-lg">
-              <p className="text-cyan-400 text-2xl font-extrabold">
+              <div className="text-cyan-400 text-2xl font-extrabold">
                 {isBodyParts
                   ? <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />
                   : <ExerciseCard exercise={item} />}
-              </p>
+              </div>
             </div>
           </button>
         ))}
@@ -73,8 +73,7 @@ export default HorizontalScrollbar;
 
 HorizontalScrollbar.propTypes = {
   data: PropTypes.instanceOf(Array),
-  bodyPart: PropTypes.instanceOf(Array),
-  // bodyPart: PropTypes.string,
+  bodyPart: PropTypes.oneOfType([PropTypes.instanceOf(Array), PropTypes.string]),
   setBodyPart: PropTypes.func,
   isBodyParts: PropTypes.bool,
 };
