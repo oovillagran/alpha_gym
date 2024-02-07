@@ -18,7 +18,6 @@ export default function Header() {
           </div>
           <div className="flex gap-4">
             <NavLink to="/" className="hover:underline font-content">Home</NavLink>
-            <NavLink to="/exercises" className="hover:underline font-content">Exercises</NavLink>
           </div>
         </header>
         <HeroBanner />
